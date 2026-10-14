@@ -1,12 +1,12 @@
 name: DevSecOps Pipeline
-on:[push]
+on: [push]
 jobs:
   build-and-scan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Contruir Imagen
-        run: docker build -t mi-app-insegura:latest.
+        run: docker build -t mi-app-insegura:latest .
       - name: Escanear vulnerabilidades con Trivy
         uses: aquasecurity/trivy-action@master
         with:
